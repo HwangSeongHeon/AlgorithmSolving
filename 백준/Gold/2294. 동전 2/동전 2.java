@@ -21,9 +21,10 @@ public class Main {
 	
 		dp = new int[k + 1];
 		Arrays.fill(dp, 100 * 100_000);
+		Arrays.sort(coin);
 		dp[0] = 0;
 		for(int i = 0; i < n; i ++) {
-			for(int j = 1; j <= k; j ++) {
+			for(int j = coin[i]; j <= k; j ++) {
 				if(coin[i] <= j) {
 					dp[j] = Math.min(dp[j - coin[i]] + 1, dp[j]);
 				}
